@@ -1,0 +1,22 @@
+
+def array_rotation(a,d):
+    n = len(a)
+    temp = array_temp(a,d)
+    for i in range(n-d):
+        a[i] = a[i+d]
+    del a[n-d:]
+    return a + temp
+
+def array_temp(a,d):
+    temp = [] 
+    i = 0
+    while d > 0:
+        temp.append(a[i])
+        d -= 1
+        i += 1
+    return temp
+
+a = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+d = 5
+k = array_rotation(a,d)
+print(k)
