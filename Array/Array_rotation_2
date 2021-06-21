@@ -1,0 +1,23 @@
+Write a function rotate(arr[], d) that rotates arr[] of size n by d elements with reverse function.
+
+def reverse_method(a,d):
+    if d == 0:
+        return
+    reverse(a,0,d-1)
+    reverse(a,d,len(a)-1)
+    reverse(a, 0, len(a)-1)
+    return  a
+
+def reverse(a,start,end):
+    while start < end:
+        temp = a[start]
+        a[start] = a[end]
+        a[end] = temp
+        start += 1
+        end -= 1
+        
+arr = [1, 2, 3, 4, 5, 6, 7]
+d = 2
+  
+result = reverse_method(arr, d)
+print(result)
