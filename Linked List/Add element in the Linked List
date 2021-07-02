@@ -1,0 +1,52 @@
+class Node:
+    def __init__(self, data) -> None:
+        self.data = data
+        self.next = None
+
+class linkedList:
+    def __init__(self) -> None:
+        self.head = None
+    
+    def printl(self):
+        temp = self.head
+        while temp:
+            print(temp.data)
+            temp = temp.next
+    
+    def push(self, new_data):        ## to push the node at the front 
+        new_node = Node(new_data)
+        new_node.next = self.head
+        self.head = new_node
+
+    def afterPre(self, pre_node, new_data):    ## to push the node after some node 
+        if pre_node is None:
+            return "Previous Node doesn't exist"
+        
+        new_node = Node(new_data)
+        new_node.next = pre_node.next
+        pre_node.next = new_node
+
+    def append(self, new_data):   ## to append the node at the end of the Linked list
+        new_node = Node(new_data)
+
+        if self.head is None:
+            self.head = new_node
+            return
+        
+        last = self.head
+        while last.next:
+            last = last.next
+            
+        last.next = new_node
+
+
+if __name__ == "__main__":
+    ll = linkedList()
+    ll.head = Node(8)
+    ll.append(9)
+    ll.push(7)
+    ll.push(5)
+    ll.afterPre(ll.head,6)
+
+    print("Created linked List")
+    ll.printl()
